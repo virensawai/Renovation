@@ -1,0 +1,319 @@
+/* ===========================
+   Courses Page Styles
+   =========================== */
+
+.courses-page {
+  padding-top: 120px;
+  padding-bottom: 128px;
+}
+
+/* --- Page Header --- */
+.courses-header {
+  margin-bottom: 96px;
+  max-width: 768px;
+}
+
+@media (min-width: 768px) {
+  .courses-header {
+    margin-bottom: 128px;
+  }
+}
+
+.courses-header h1 {
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.courses-header p {
+  color: var(--on-surface-variant);
+}
+
+/* --- Teaching Philosophy Bento --- */
+.philosophy-bento {
+  margin-bottom: 128px;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .philosophy-grid {
+    grid-template-columns: 8fr 4fr;
+  }
+}
+
+.philosophy-card {
+  background-color: var(--surface-ice);
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .philosophy-card {
+    padding: 48px;
+  }
+}
+
+.philosophy-card h2 {
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.philosophy-card h2 .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.philosophy-card p {
+  color: var(--on-surface-variant);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.philosophy-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Student Hours Card */
+.student-hours-card {
+  background-color: var(--primary-container);
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  color: var(--on-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-hours-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.student-hours-content {
+  position: relative;
+  z-index: 10;
+}
+
+.student-hours-label {
+  color: var(--secondary-fixed);
+  margin-bottom: 8px;
+}
+
+.student-hours-title {
+  margin-bottom: 24px;
+}
+
+.student-hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.student-hours-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.student-hours-item .material-symbols-outlined {
+  color: var(--secondary-fixed);
+}
+
+.student-hours-item strong {
+  display: block;
+  color: var(--secondary-fixed-dim);
+}
+
+.student-hours-footer {
+  position: relative;
+  z-index: 10;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(146, 204, 255, 0.2);
+}
+
+.student-hours-footer p {
+  color: var(--secondary-fixed);
+}
+
+/* --- Course Listings --- */
+.courses-listings {
+  margin-bottom: 128px;
+}
+
+.courses-listings-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.courses-listings-header h2 {
+  color: var(--primary);
+}
+
+.courses-listings-header span {
+  color: var(--outline);
+}
+
+/* Category Title */
+.courses-category-title {
+  color: var(--secondary);
+  margin-bottom: 32px;
+}
+
+/* Theory Course Cards Grid */
+.theory-courses-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+  margin-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+  .theory-courses-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .theory-courses-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.course-card {
+  position: relative;
+  background-color: var(--surface);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--outline-variant);
+  transition: border-color 0.3s ease;
+}
+
+.course-card:hover {
+  border-color: var(--primary-container);
+}
+
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.course-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  background-color: var(--surface-ice);
+  padding: 4px 8px;
+  border-radius: var(--radius-default);
+}
+
+.course-card-header .material-symbols-outlined {
+  color: var(--outline);
+  transition: color 0.3s ease;
+}
+
+.course-card:hover .course-card-header .material-symbols-outlined {
+  color: var(--primary);
+}
+
+.course-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.course-card .arrow {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  opacity: 0;
+  color: var(--primary);
+  transition: opacity 0.3s ease;
+}
+
+.course-card:hover .arrow {
+  opacity: 1;
+}
+
+/* Lab Cards Grid */
+.labs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .labs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .labs-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.lab-card {
+  background-color: var(--surface-container-low);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--electric-accent);
+  box-shadow: 0 4px 30px rgba(26, 82, 118, 0.05);
+}
+
+.lab-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.lab-card-header .material-symbols-outlined {
+  color: var(--electric-accent);
+}
+
+.lab-card-header span:last-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--outline);
+}
+
+.lab-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--primary);
+}

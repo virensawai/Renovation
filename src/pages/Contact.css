@@ -1,0 +1,350 @@
+/* ===========================
+   Contact Page Styles
+   =========================== */
+
+.contact-page {
+  padding-top: 160px;
+  padding-bottom: 128px;
+}
+
+/* --- Header --- */
+.contact-header {
+  margin-bottom: 96px;
+  max-width: 768px;
+}
+
+@media (min-width: 768px) {
+  .contact-header {
+    margin-bottom: 128px;
+  }
+}
+
+.contact-header h1 {
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.contact-header p {
+  color: var(--on-surface-variant);
+}
+
+/* --- Bento Grid --- */
+.contact-bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .contact-bento {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--gutter);
+  }
+}
+
+/* --- Contact Details Card --- */
+.contact-details-card {
+  background-color: var(--surface-ice);
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .contact-details-card {
+    padding: 48px;
+  }
+}
+
+/* Decorative blur circle */
+.contact-details-card .decorative-blur {
+  position: absolute;
+  top: -48px;
+  right: -48px;
+  width: 192px;
+  height: 192px;
+  background-color: rgba(0, 59, 90, 0.05);
+  border-radius: 50%;
+  filter: blur(48px);
+  transition: background-color 0.5s ease;
+}
+
+.contact-details-card:hover .decorative-blur {
+  background-color: rgba(0, 59, 90, 0.1);
+}
+
+.contact-details-card h2 {
+  color: var(--primary);
+  margin-bottom: 48px;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-info-item .material-symbols-outlined {
+  color: var(--electric-accent);
+  margin-top: 4px;
+  font-variation-settings: 'FILL' 1;
+}
+
+.contact-info-label {
+  color: var(--outline);
+  margin-bottom: 4px;
+}
+
+.contact-info-value {
+  color: var(--on-surface);
+  line-height: 1.6;
+}
+
+.contact-info-value a {
+  color: var(--on-surface);
+  transition: color 0.2s ease;
+}
+
+.contact-info-value a:hover {
+  color: var(--primary);
+}
+
+.contact-details-footer {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(193, 199, 207, 0.3);
+}
+
+.contact-details-footer p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--on-surface-variant);
+}
+
+.contact-details-footer .material-symbols-outlined {
+  color: var(--primary);
+  font-size: 16px;
+}
+
+/* --- Right Column (Slots + Form) --- */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .contact-right {
+    gap: var(--gutter);
+  }
+}
+
+/* Student Slots Card */
+.contact-slots-card {
+  background-color: var(--pure-white);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(26, 82, 118, 0.05);
+}
+
+.contact-slots-card h3 {
+  color: var(--primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-slots-card h3 .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1;
+}
+
+.contact-slots-description {
+  color: var(--on-surface-variant);
+  margin-bottom: 24px;
+}
+
+.slots-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slot-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--surface-container-low);
+  border-radius: var(--radius-lg);
+  transition: background-color 0.2s ease;
+}
+
+.slot-item:hover {
+  background-color: var(--surface-ice);
+}
+
+.slot-day {
+  width: 96px;
+  color: var(--primary);
+}
+
+.slot-time {
+  color: var(--on-surface);
+}
+
+/* Appointment Form Card */
+.contact-form-card {
+  background-color: var(--pure-white);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(26, 82, 118, 0.05);
+  flex-grow: 1;
+}
+
+.contact-form-card h3 {
+  color: var(--primary);
+  margin-bottom: 32px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--outline);
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.form-group:focus-within label {
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--outline-variant);
+  padding: 8px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--on-surface);
+  outline: none;
+  transition: border-color 0.2s ease;
+  border-radius: 0;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--secondary);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--outline-variant);
+}
+
+.form-group select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%2372787f'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.form-submit-btn {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background-color: var(--primary-container);
+  color: var(--on-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: var(--radius-default);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .form-submit-btn {
+    width: auto;
+  }
+}
+
+.form-submit-btn:hover {
+  background-color: var(--secondary);
+}
+
+.form-submit-btn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* Success message */
+.form-success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: rgba(52, 152, 219, 0.08);
+  border-radius: var(--radius-lg);
+  color: var(--primary);
+  margin-top: 16px;
+}
+
+.form-success .material-symbols-outlined {
+  color: var(--electric-accent);
+  font-variation-settings: 'FILL' 1;
+}

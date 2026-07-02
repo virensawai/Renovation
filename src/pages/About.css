@@ -1,0 +1,193 @@
+/* ===========================
+   About Page Styles
+   =========================== */
+
+.about-page {
+  padding-top: 128px;
+  padding-bottom: 96px;
+}
+
+/* --- About Hero --- */
+.about-hero {
+  margin-bottom: 128px;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about-hero-grid {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.about-hero-text {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .about-hero-text {
+    order: 1;
+  }
+}
+
+.about-hero-label {
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.about-hero-title {
+  color: var(--primary);
+  margin-bottom: 32px;
+}
+
+.about-hero-bio {
+  color: var(--on-surface-variant);
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 640px;
+}
+
+.about-expertise-label {
+  color: var(--outline);
+  margin-bottom: 16px;
+}
+
+.about-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.about-chip {
+  background-color: var(--surface-ice);
+  color: var(--primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s ease;
+}
+
+.about-chip:hover {
+  background-color: var(--secondary);
+  color: var(--pure-white);
+}
+
+.about-photo-wrapper {
+  order: 1;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .about-photo-wrapper {
+    order: 2;
+    margin-bottom: 0;
+  }
+}
+
+.about-photo-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(26, 82, 118, 0.08);
+  background-color: var(--surface-ice);
+  aspect-ratio: 4 / 5;
+}
+
+.about-photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Journey Section --- */
+.journey-section {
+  margin-bottom: 0;
+}
+
+.journey-title {
+  color: var(--primary);
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--surface-variant);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .journey-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.journey-card {
+  background-color: var(--surface-ice);
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .journey-card {
+    padding: 48px;
+  }
+}
+
+.journey-card:hover {
+  box-shadow: 0 10px 30px rgba(26, 82, 118, 0.05);
+}
+
+.journey-card .icon {
+  color: var(--secondary);
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.journey-card h3 {
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.journey-card .description {
+  color: var(--on-surface-variant);
+  margin-bottom: 32px;
+}
+
+.journey-card-footer {
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 59, 90, 0.1);
+}
+
+.journey-card-footer .institution {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.journey-card-footer .location {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-top: 4px;
+}
