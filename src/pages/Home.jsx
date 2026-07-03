@@ -2,11 +2,46 @@ import { Link } from 'react-router-dom';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import './Home.css';
 
+const announcements = [
+  "Research paper published in 'The Visual Computer' journal.",
+  "Upcoming Guest Lecture on Deep Learning - March 15th.",
+  "Student registration for CSE (AIML) courses is now open."
+];
+
+const expertiseTags = [
+  'Image Processing',
+  'Visual Cryptography',
+  'Machine Learning',
+  'Information Security',
+  'Python',
+  'Deep Learning'
+];
+
 export default function Home() {
   const ref = useScrollAnimation();
 
   return (
-    <main ref={ref} className="home-page" style={{ paddingTop: 112, paddingBottom: 128 }}>
+    <main ref={ref} className="home-page" style={{ paddingTop: 80, paddingBottom: 128 }}>
+      {/* ============ Announcement Bar ============ */}
+      <div className="announcement-bar">
+        <div className="announcement-container">
+          <div className="announcement-label">
+            <span className="material-symbols-outlined announcement-icon">campaign</span>
+            <span className="announcement-text-tag">ANNOUNCEMENT:</span>
+          </div>
+          <div className="announcement-marquee">
+            <div className="marquee-content">
+              {[...announcements, ...announcements].map((announcement, index) => (
+                <span key={index} className="marquee-item">
+                  {announcement}
+                  <span className="marquee-separator"> • </span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ============ Hero Section ============ */}
       <section className="hero container" id="home">
         <div className="hero-grid">
@@ -97,18 +132,15 @@ export default function Home() {
           {/* Expertise Tags */}
           <div className="bento-expertise animate-on-scroll delay-200">
             <span className="text-label-caps label">Core Expertise:</span>
-            {[
-              'Image Processing',
-              'Visual Cryptography',
-              'Machine Learning',
-              'Information Security',
-              'Python',
-              'Deep Learning',
-            ].map((tag) => (
-              <span key={tag} className="expertise-tag">
-                {tag}
-              </span>
-            ))}
+            <div className="expertise-marquee">
+              <div className="expertise-marquee-content">
+                {[...expertiseTags, ...expertiseTags].map((tag, idx) => (
+                  <span key={idx} className="expertise-tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
