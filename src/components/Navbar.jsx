@@ -4,7 +4,11 @@ import './Navbar.css';
 
 const navItems = [
   { label: 'Home', path: '/' },
-  { label: 'Course Material', path: '/courses' },
+  { label: 'Attendance', path: '/attendance' },
+  { label: 'Marks', path: '/marks' },
+  { label: 'Assignment', path: '/assignment' },
+  { label: 'Announcements', path: '/announcements' },
+  { label: 'Courses', path: '/courses' },
   { label: 'Contact', path: '/contact' },
 ];
 
