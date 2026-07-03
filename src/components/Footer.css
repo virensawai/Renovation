@@ -15,7 +15,8 @@
   align-items: center;
   gap: var(--gutter);
   max-width: var(--container-max);
-  margin: 0 auto;
+  width: min(92vw, var(--container-max));
+  margin-inline: auto;
   padding: 0 var(--margin-mobile);
 }
 
@@ -23,6 +24,12 @@
   .footer-inner {
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 var(--margin-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-inner {
     padding: 0 var(--margin-desktop);
   }
 }

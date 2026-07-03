@@ -84,9 +84,10 @@
   /* --- Spacing (8px grid) --- */
   --unit: 8px;
   --gutter: 24px;
-  --margin-mobile: 20px;
-  --margin-desktop: 64px;
-  --container-max: 1280px;
+  --margin-mobile: 16px;
+  --margin-tablet: 24px;
+  --margin-desktop: 32px;
+  --container-max: 1600px;
 
   /* --- Border Radius --- */
   --radius-sm: 0.125rem;
@@ -239,13 +240,20 @@ ol {
    ============================ */
 .container {
   max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
+  width: min(92vw, var(--container-max));
+  margin-inline: auto;
   padding-left: var(--margin-mobile);
   padding-right: var(--margin-mobile);
 }
 
 @media (min-width: 768px) {
+  .container {
+    padding-left: var(--margin-tablet);
+    padding-right: var(--margin-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
   .container {
     padding-left: var(--margin-desktop);
     padding-right: var(--margin-desktop);

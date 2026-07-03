@@ -1,139 +1,415 @@
+import { useState } from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import './Courses.css';
 
-const theoryCourses = [
-  { code: 'ML402PCC08', name: 'Algorithms', icon: 'menu_book' },
-  { code: 'ML505', name: 'Deep Learning', icon: 'psychology' },
-  { code: 'ML303MDM11', name: 'Programming Methodology', icon: 'code' },
-  { code: 'CSE2PM09A / AID2PM07A', name: 'Design and Analysis of Algorithm', icon: 'account_tree' },
-  { code: 'CSE2PM01A', name: 'Data Structures', icon: 'schema' },
-  { code: 'CSE1012', name: 'Problem Solving using Python', icon: 'terminal' },
-  { code: 'CET1043B', name: 'Fundamentals of Data Structures', icon: 'data_array' },
-  { code: 'CET2001B', name: 'Advanced Data Structures', icon: 'layers' },
-  { code: 'CSE1011', name: 'Fundamentals of Computer Science', icon: 'computer' },
-  { code: 'CSE2005', name: 'Object Oriented Programming', icon: 'integration_instructions' },
+const theoryResources = [
+  {
+    name: 'Algorithms Syllabus (Theory)',
+    accessLabel: 'View Syllabus',
+    url: '#',
+    isExternal: false,
+    icon: 'description',
+    actionIcon: 'visibility',
+  },
+  {
+    name: 'Module 1 (PPT)',
+    accessLabel: 'Module 1 (PPT)',
+    url: '#',
+    isExternal: false,
+    icon: 'slideshow',
+    actionIcon: 'download',
+  },
+  {
+    name: 'Module 1 (Notes)',
+    accessLabel: 'External Link',
+    url: 'https://drive.google.com/file/d/1b5cZUqMHCp_bn6KFMg8fpFJYijeUEykj/view',
+    isExternal: true,
+    icon: 'notes',
+    actionIcon: 'link',
+  },
+  {
+    name: 'Module 1 (Revision)',
+    accessLabel: 'Module 1 (MCQ)',
+    url: '#',
+    isExternal: false,
+    icon: 'quiz',
+    actionIcon: 'task',
+  },
+  {
+    name: 'Module 2 (PPT)',
+    accessLabel: 'Module 2 (PPT)',
+    url: '#',
+    isExternal: false,
+    icon: 'slideshow',
+    actionIcon: 'download',
+  },
+  {
+    name: 'Module 2 (Notes)',
+    accessLabel: 'External Link',
+    url: 'https://drive.google.com/file/d/1I4Sz1UUXBrf54Gd_3x3NGPKqPxQERNPd/view',
+    isExternal: true,
+    icon: 'notes',
+    actionIcon: 'link',
+  },
+  {
+    name: 'Masters Th.',
+    accessLabel: 'External Link',
+    url: 'https://drive.google.com/file/d/123-3-QYlH1cxPs1PQBcibAJHEqR5X_HI/preview',
+    isExternal: true,
+    icon: 'menu_book',
+    actionIcon: 'link',
+  },
+  {
+    name: 'UNIT 3 (Notes)',
+    accessLabel: 'External Link',
+    url: 'https://drive.google.com/file/d/1HoxE3Utn87i_cpE9IZL_bT0gQmrYIh6S/view?usp=sharing',
+    isExternal: true,
+    icon: 'notes',
+    actionIcon: 'link',
+  },
+  {
+    name: 'UNIT 3 (graphics Algorithm PPT)',
+    accessLabel: 'UNIT 3 (graphics Algorithm PPT)',
+    url: '#',
+    isExternal: false,
+    icon: 'slideshow',
+    actionIcon: 'download',
+  },
+  {
+    name: 'UNIT 3 (PPT)',
+    accessLabel: 'UNIT 3 ( PPT)',
+    url: '#',
+    isExternal: false,
+    icon: 'slideshow',
+    actionIcon: 'download',
+  },
+  {
+    name: 'MSE 1 Model Answers',
+    accessLabel: 'MSE 1 Model Answers',
+    url: '#',
+    isExternal: false,
+    icon: 'assignment_turned_in',
+    actionIcon: 'task',
+  },
+  {
+    name: 'Module 4 (PPT PART 1)',
+    accessLabel: 'Module 4 (PART 1)',
+    url: '#',
+    isExternal: false,
+    icon: 'slideshow',
+    actionIcon: 'download',
+  },
+  {
+    name: 'UNIT 4 (Notes)',
+    accessLabel: 'External Link',
+    url: 'https://drive.google.com/file/d/1m2GfkF1m4kcTBhmibl7ZVXI_ppuinQ0j/view?usp=sharing',
+    isExternal: true,
+    icon: 'notes',
+    actionIcon: 'link',
+  },
+  {
+    name: 'UNIT 5 PPT',
+    accessLabel: 'Module 5 PPT',
+    url: '#',
+    isExternal: false,
+    icon: 'slideshow',
+    actionIcon: 'download',
+  },
+  {
+    name: 'UNIT 6 PPT',
+    accessLabel: 'Module 6 PPT',
+    url: '#',
+    isExternal: false,
+    icon: 'slideshow',
+    actionIcon: 'download',
+  },
+  {
+    name: 'Module 5 (Notes)',
+    accessLabel: 'External Link',
+    url: 'https://drive.google.com/file/d/11wwjT_weh1r4quqmHxALPdrLndTBTA1_/preview',
+    isExternal: true,
+    icon: 'notes',
+    actionIcon: 'link',
+  },
+  {
+    name: 'Module 6 (Notes)',
+    accessLabel: 'External Link',
+    url: 'https://drive.google.com/file/d/1p82OHMyhN-RetxE0wP_iwPS72zGcwFjZ/preview',
+    isExternal: true,
+    icon: 'notes',
+    actionIcon: 'link',
+  },
+  {
+    name: 'MSE 2 Model Answers',
+    accessLabel: 'MSE 2 Model Answers',
+    url: '#',
+    isExternal: false,
+    icon: 'assignment_turned_in',
+    actionIcon: 'task',
+  },
 ];
 
-const labCourses = [
-  { code: 'ML407PCC10', name: 'Algorithms Lab.' },
-  { code: 'ML307PCC04', name: 'Programming Methodology Lab.' },
-  { code: 'CSE2PR02A', name: 'Data Structures Lab' },
+const labResources = [
+  {
+    name: 'Student Lab Manual',
+    accessLabel: 'View Manual',
+    url: '#',
+    isExternal: false,
+    icon: 'menu_book',
+    actionIcon: 'menu_book',
+  },
+  {
+    name: 'Merge Sort',
+    accessLabel: 'Access Code',
+    url: '#',
+    isExternal: false,
+    icon: 'code',
+    actionIcon: 'description',
+  },
+  {
+    name: 'Quick Sort',
+    accessLabel: 'Access Code',
+    url: '#',
+    isExternal: false,
+    icon: 'code',
+    actionIcon: 'description',
+  },
+  {
+    name: 'Additional Code & Output Page',
+    accessLabel: 'External Drive',
+    url: 'https://docs.google.com/document/d/1eDjoqFrTS0Qhf1Dn7Gs1kfaVFhwZJMYI/edit?usp=drive_link&ouid=109860618860071666089&rtpof=true&sd=true',
+    isExternal: true,
+    icon: 'link',
+    actionIcon: 'open_in_new',
+  },
+  {
+    name: 'Prims Algo',
+    accessLabel: 'Access Code',
+    url: '#',
+    isExternal: false,
+    icon: 'code',
+    actionIcon: 'description',
+  },
+  {
+    name: 'Chain Matrix Multiplication',
+    accessLabel: 'Access Code',
+    url: '#',
+    isExternal: false,
+    icon: 'code',
+    actionIcon: 'description',
+  },
+  {
+    name: 'N- Queen Problem',
+    accessLabel: 'Access Code',
+    url: '#',
+    isExternal: false,
+    icon: 'code',
+    actionIcon: 'description',
+  },
 ];
 
 export default function Courses() {
   const ref = useScrollAnimation();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const displayedTheoryResources = isExpanded
+    ? theoryResources
+    : theoryResources.slice(0, 4);
 
   return (
     <main ref={ref} className="courses-page container">
-      {/* Header */}
+      {/* Hero Header */}
       <header className="courses-header animate-on-scroll">
-        <h1 className="text-display-lg-mobile responsive-display">Courses Taught</h1>
+        <h1 className="text-display-lg-mobile responsive-display">Course Materials</h1>
         <p className="text-body-lg">
-          Welcome to Dr. Nikhil Mhala Course Portal. Access course materials,
-          attendance records, and important announcements here. Dedicated to
-          advancing education in Computer Science and Engineering.
+          Access curated learning resources, syllabi, lecture notes, and lab manuals for all current courses.
+          Select a subject below to begin exploring the materials.
         </p>
       </header>
 
-      {/* Teaching Philosophy + Student Hours Bento */}
-      <section className="philosophy-bento animate-on-scroll">
-        <div className="philosophy-grid">
-          <div className="philosophy-card">
-            <h2 className="text-headline-md">
-              <span className="material-symbols-outlined">school</span>
-              Teaching Philosophy
-            </h2>
-            <p className="text-body-md">
-              My approach to education centers on practical application and
-              foundational understanding. I strive to bridge the gap between
-              theoretical computer science and real-world implementation,
-              particularly in the fields of Image Processing, Machine Learning,
-              and foundational programming.
-            </p>
-            <p className="text-body-md">
-              By integrating current research into the curriculum, I aim to equip
-              students with the analytical skills necessary to tackle complex
-              computational problems and adapt to rapidly evolving technologies.
-            </p>
-          </div>
+      {/* Course Subjects Grid */}
+      <section className="subjects-overview animate-on-scroll">
+        <h2 className="text-headline-md section-title-border">Course Subjects</h2>
+        <div className="subjects-grid">
+          {/* Subject Card: Algorithms Theory */}
+          <a
+            href="#algo-theory"
+            className="subject-card-link"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('algo-theory');
+            }}
+          >
+            <div className="subject-card-body">
+              <div className="subject-card-header">
+                <div className="subject-icon-wrapper">
+                  <span className="material-symbols-outlined icon-fill">psychology</span>
+                </div>
+                <div className="subject-code-name">
+                  <span className="subject-code">[ML402PCC08]</span>
+                  <h3 className="subject-name">Algorithms (Theory)</h3>
+                </div>
+              </div>
+              <div className="subject-card-footer">
+                <span className="resource-pill">
+                  <span className="material-symbols-outlined">description</span>
+                  {theoryResources.length} Resources
+                </span>
+                <span className="material-symbols-outlined arrow-icon">arrow_forward</span>
+              </div>
+            </div>
+          </a>
 
-          <div className="student-hours-card">
-            <div className="student-hours-content">
-              <p className="text-label-caps student-hours-label">Available Slots</p>
-              <h3 className="text-headline-md student-hours-title">Student Hours</h3>
-              <ul className="student-hours-list text-body-md">
-                <li className="student-hours-item">
-                  <span className="material-symbols-outlined">schedule</span>
-                  <div>
-                    <strong>Monday</strong>
-                    <span>3:30 PM - 5:00 PM</span>
-                  </div>
-                </li>
-                <li className="student-hours-item">
-                  <span className="material-symbols-outlined">schedule</span>
-                  <div>
-                    <strong>Wed - Fri</strong>
-                    <span>3:30 PM - 5:00 PM</span>
-                  </div>
-                </li>
-                <li className="student-hours-item">
-                  <span className="material-symbols-outlined">schedule</span>
-                  <div>
-                    <strong>Saturday</strong>
-                    <span>1:30 PM - 3:00 PM</span>
-                  </div>
-                </li>
-              </ul>
+          {/* Subject Card: Algorithms Lab */}
+          <a
+            href="#algo-lab"
+            className="subject-card-link"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('algo-lab');
+            }}
+          >
+            <div className="subject-card-body">
+              <div className="subject-card-header">
+                <div className="subject-icon-wrapper">
+                  <span className="material-symbols-outlined icon-fill">terminal</span>
+                </div>
+                <div className="subject-code-name">
+                  <span className="subject-code">[ML407PCC10]</span>
+                  <h3 className="subject-name">Algorithms LAB.</h3>
+                </div>
+              </div>
+              <div className="subject-card-footer">
+                <span className="resource-pill">
+                  <span className="material-symbols-outlined">folder_open</span>
+                  {labResources.length} Resources
+                </span>
+                <span className="material-symbols-outlined arrow-icon">arrow_forward</span>
+              </div>
             </div>
-            <div className="student-hours-footer">
-              <p className="text-label-md">Email to schedule an appointment.</p>
-            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* Algorithms Theory Materials Section */}
+      <section id="algo-theory" className="materials-section scroll-mt-32 animate-on-scroll">
+        <div className="section-header">
+          <div className="section-header-title">
+            <span className="material-symbols-outlined section-icon icon-fill">psychology</span>
+            <h2 className="text-headline-lg">Algorithms (Theory)</h2>
+          </div>
+          <span className="badge-pill hide-mobile">
+            {theoryResources.length} Available Resources
+          </span>
+        </div>
+
+        <div className="table-card border border-surface-variant">
+          <div className="table-wrapper">
+            <table className="materials-table">
+              <thead>
+                <tr>
+                  <th className="col-type">Material Type</th>
+                  <th className="col-access">Access</th>
+                </tr>
+              </thead>
+              <tbody>
+                {displayedTheoryResources.map((resource, index) => (
+                  <tr key={index}>
+                    <td className="material-name-cell">
+                      <span className="material-symbols-outlined file-icon">
+                        {resource.icon}
+                      </span>
+                      {resource.name}
+                    </td>
+                    <td>
+                      {resource.isExternal ? (
+                        <a
+                          className="action-link link-external"
+                          href={resource.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span className="material-symbols-outlined text-sm">link</span>
+                          {resource.accessLabel}
+                        </a>
+                      ) : (
+                        <a className="action-link link-placeholder" href={resource.url}>
+                          <span className="material-symbols-outlined text-sm">
+                            {resource.actionIcon}
+                          </span>
+                          {resource.accessLabel}
+                        </a>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="table-footer">
+            <button
+              className="toggle-expand-btn"
+              onClick={() => setIsExpanded((prev) => !prev)}
+            >
+              {isExpanded ? 'Show Less' : `View All ${theoryResources.length} Resources`}
+              <span className="material-symbols-outlined">
+                {isExpanded ? 'expand_less' : 'expand_more'}
+              </span>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Course Listings */}
-      <section className="courses-listings">
-        <div className="courses-listings-header animate-on-scroll">
-          <h2 className="text-headline-lg">Academic Courses</h2>
-          <span className="text-label-caps">Undergraduate &amp; Graduate</span>
+      {/* Algorithms Lab Materials Section */}
+      <section id="algo-lab" className="materials-section scroll-mt-32 animate-on-scroll">
+        <div className="section-header">
+          <div className="section-header-title">
+            <span className="material-symbols-outlined section-icon icon-fill">terminal</span>
+            <h2 className="text-headline-lg">Algorithms LAB.</h2>
+          </div>
+          <span className="badge-pill hide-mobile">
+            {labResources.length} Available Resources
+          </span>
         </div>
 
-        {/* Theory Courses */}
-        <div style={{ marginBottom: 64 }}>
-          <h3 className="text-headline-md courses-category-title animate-on-scroll">
-            Theory Courses
-          </h3>
-          <div className="theory-courses-grid">
-            {theoryCourses.map((course) => (
-              <div key={course.code} className="course-card animate-on-scroll">
-                <div className="course-card-header">
-                  <span className="course-code">{course.code}</span>
-                  <span className="material-symbols-outlined">{course.icon}</span>
-                </div>
-                <h4 className="course-name">{course.name}</h4>
-                <span className="material-symbols-outlined arrow">arrow_forward</span>
+        <div className="labs-resource-grid">
+          {labResources.map((lab, index) => (
+            <div key={index} className="lab-resource-card hover-lift">
+              <div className="lab-card-top text-primary">
+                <span className="material-symbols-outlined icon-fill">
+                  {lab.icon === 'link' ? 'link' : lab.icon}
+                </span>
+                <h4 className="lab-resource-title">{lab.name}</h4>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Labs */}
-        <div>
-          <h3 className="text-headline-md courses-category-title animate-on-scroll">
-            Laboratory Sessions
-          </h3>
-          <div className="labs-grid">
-            {labCourses.map((lab) => (
-              <div key={lab.code} className="lab-card animate-on-scroll">
-                <div className="lab-card-header">
-                  <span className="material-symbols-outlined">science</span>
-                  <span>{lab.code}</span>
-                </div>
-                <h4 className="lab-name">{lab.name}</h4>
+              <div className="lab-card-action">
+                {lab.isExternal ? (
+                  <a
+                    className="lab-btn-primary"
+                    href={lab.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="material-symbols-outlined text-sm">open_in_new</span>
+                    {lab.accessLabel}
+                  </a>
+                ) : (
+                  <a className="lab-btn-outline" href={lab.url}>
+                    <span className="material-symbols-outlined text-sm mr-1">
+                      {lab.actionIcon}
+                    </span>
+                    {lab.accessLabel}
+                  </a>
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>

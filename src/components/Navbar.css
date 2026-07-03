@@ -17,11 +17,18 @@
   align-items: center;
   height: 80px;
   max-width: var(--container-max);
-  margin: 0 auto;
+  width: min(92vw, var(--container-max));
+  margin-inline: auto;
   padding: 0 var(--margin-mobile);
 }
 
 @media (min-width: 768px) {
+  .navbar-inner {
+    padding: 0 var(--margin-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
   .navbar-inner {
     padding: 0 var(--margin-desktop);
   }
