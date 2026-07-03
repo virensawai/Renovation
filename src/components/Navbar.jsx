@@ -1,19 +1,29 @@
 import { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const navItems = [
   { label: 'Home', path: '/' },
-  { label: 'Research', path: '/research' },
   { label: 'Course Material', path: '/courses' },
   { label: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMobile = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobile = () => setIsMobileMenuOpen(false);
+
+  const checkIsActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/' && !location.hash;
+    }
+    if (path === '/#research') {
+      return location.pathname === '/' && location.hash === '#research';
+    }
+    return location.pathname === path;
+  };
 
   return (
     <>
@@ -25,18 +35,18 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="navbar-links">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                end={item.path === '/'}
-                className={({ isActive }) =>
-                  `navbar-link${isActive ? ' active' : ''}`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
+            {navItems.map((item) => {
+              const active = checkIsActive(item.path);
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`navbar-link${active ? ' active' : ''}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop CTA */}
@@ -71,19 +81,19 @@ export default function Navbar() {
           </span>
         </button>
 
-        {navItems.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            end={item.path === '/'}
-            className={({ isActive }) =>
-              `mobile-menu-link${isActive ? ' active' : ''}`
-            }
-            onClick={closeMobile}
-          >
-            {item.label}
-          </NavLink>
-        ))}
+        {navItems.map((item) => {
+          const active = checkIsActive(item.path);
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`mobile-menu-link${active ? ' active' : ''}`}
+              onClick={closeMobile}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
 
         <Link to="/contact" className="mobile-menu-cta shimmer-btn" onClick={closeMobile}>
           Schedule Appointment

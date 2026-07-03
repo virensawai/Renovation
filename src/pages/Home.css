@@ -479,7 +479,7 @@
   color: var(--pure-white);
 }
 
-/* --- Research Highlights Section --- */
+/* --- Research Section & Search --- */
 .research-section {
   padding: 96px 0;
   border-top: 1px solid var(--outline-variant);
@@ -489,151 +489,230 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: 48px;
+}
+
+.research-search {
   margin-bottom: 64px;
-}
-
-@media (min-width: 768px) {
-  .research-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-}
-
-.research-header .description {
-  color: var(--on-surface-variant);
-  max-width: 640px;
-}
-
-.view-all-link {
-  display: inline-flex;
+  border-bottom: 2px solid var(--surface-tint);
+  padding-bottom: 16px;
+  display: flex;
   align-items: center;
-  color: var(--secondary);
+}
+
+.research-search .material-symbols-outlined {
+  color: var(--outline);
+  margin-right: 12px;
+}
+
+.research-search input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  transition: color 0.2s ease;
-  gap: 8px;
-  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--on-surface);
+  padding: 0;
 }
 
-.view-all-link:hover {
-  color: var(--primary);
+.research-search input::placeholder {
+  color: var(--outline-variant);
 }
 
-.view-all-link .material-symbols-outlined {
-  transition: transform 0.2s ease;
+/* --- Section Headers --- */
+.research-section-title {
+  color: var(--on-secondary-fixed);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.view-all-link:hover .material-symbols-outlined {
-  transform: translateX(4px);
+.research-section-title .line {
+  height: 1px;
+  background-color: var(--surface-dim);
+  flex-grow: 1;
+  margin-left: 16px;
 }
 
-/* Publication Cards Grid */
-.pub-grid {
+/* --- Journal Cards Grid --- */
+.journals-section {
+  margin-bottom: 96px;
+}
+
+.journals-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
-@media (min-width: 768px) {
-  .pub-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.pub-card {
-  background-color: var(--pure-white);
-  border: 1px solid var(--outline-variant);
+.journal-card {
+  background-color: var(--surface-ice);
   padding: 32px;
   border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
 }
 
-.pub-card:hover {
-  border-color: var(--primary-container);
-  transform: translateY(-8px);
+.journal-card:hover {
+  transform: translateY(-4px);
   box-shadow: 0 10px 40px -10px rgba(26, 82, 118, 0.08);
 }
 
-.pub-card-header {
+.journal-card-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 16px;
 }
 
-.pub-badge {
+.journal-year {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--primary);
+  background-color: var(--pure-white);
   padding: 4px 12px;
   border-radius: var(--radius-default);
 }
 
-.pub-badge.journal {
-  color: var(--secondary);
-  background-color: var(--surface-ice);
+.journal-card-header .material-symbols-outlined {
+  color: var(--primary-container);
+  opacity: 0.5;
 }
 
-.pub-badge.conference {
-  color: var(--on-tertiary-container);
-  background-color: var(--tertiary-fixed);
-}
-
-.pub-year {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0.1em;
-  color: var(--outline);
-}
-
-.pub-card-title {
+.journal-card h3 {
   font-family: 'Hanken Grotesk', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
-  line-height: 28px;
-  color: var(--primary);
+  line-height: 32px;
+  color: var(--on-background);
   margin-bottom: 16px;
-  transition: color 0.2s ease;
 }
 
-.pub-card:hover .pub-card-title {
-  color: var(--secondary);
-}
-
-.pub-card-authors {
+.journal-card .authors {
   color: var(--on-surface-variant);
   margin-bottom: 24px;
-  flex-grow: 1;
 }
 
-.pub-card-footer {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid var(--outline-variant);
+.journal-card .authors em {
+  font-style: italic;
+}
+
+.journal-tags {
   display: flex;
-  align-items: center;
-  color: var(--secondary);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.journal-tag {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  gap: 8px;
-  transition: transform 0.3s ease;
+  line-height: 20px;
+  color: var(--primary);
+  background-color: var(--pure-white);
+  padding: 4px 12px;
+  border-radius: var(--radius-default);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.pub-card:hover .pub-card-footer {
-  transform: translateX(4px);
+/* --- Conference Timeline --- */
+.conferences-section {
+  margin-bottom: 0;
+}
+
+.conferences-timeline {
+  padding-left: 0;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+@media (min-width: 768px) {
+  .conferences-timeline {
+    padding-left: 32px;
+    border-left: 1px solid var(--surface-variant);
+  }
+}
+
+.conference-item {
+  position: relative;
+}
+
+/* Timeline dot */
+.conference-dot {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .conference-dot {
+    display: block;
+    position: absolute;
+    left: -41px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--pure-white);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+  }
+
+  .conference-item:hover .conference-dot {
+    background-color: var(--primary);
+  }
+}
+
+.conference-date {
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.conference-item h3 {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--on-background);
+  margin-bottom: 12px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.conference-item:hover h3 {
+  color: var(--primary);
+}
+
+.conference-item .authors {
+  color: var(--on-surface-variant);
+  max-width: 800px;
+}
+
+.conference-item .authors em {
+  font-style: italic;
+}
+
+/* --- No Results --- */
+.no-results {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--on-surface-variant);
+}
+
+.no-results .material-symbols-outlined {
+  font-size: 48px;
+  color: var(--outline-variant);
+  margin-bottom: 16px;
 }
 
 /* --- CTA / Schedule Section --- */
