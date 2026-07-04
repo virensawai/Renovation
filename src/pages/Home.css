@@ -5,7 +5,7 @@
 /* --- Announcement Banner --- */
 .announcement-bar {
   width: 100%;
-  background-color: var(--pure-white);
+  background-color: var(--background);
   border-bottom: 1px solid var(--outline-variant);
   height: 52px;
   display: flex;
@@ -42,7 +42,7 @@
   align-items: center;
   gap: 8px;
   padding-right: 16px;
-  background-color: var(--pure-white);
+  background-color: var(--background);
   z-index: 2;
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
@@ -78,7 +78,7 @@
   right: 0;
   width: 60px;
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--pure-white));
+  background: linear-gradient(to right, var(--gradient-fade-white), var(--pure-white));
   z-index: 2;
   pointer-events: none;
 }
@@ -210,7 +210,7 @@
 .btn-primary:hover {
   background-color: var(--surface-tint);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(26, 82, 118, 0.2);
+  box-shadow: 0 8px 24px var(--shadow-btn);
 }
 
 .btn-secondary {
@@ -234,7 +234,7 @@
   border-color: var(--primary);
   background-color: var(--surface-ice);
   transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(26, 82, 118, 0.1);
+  box-shadow: 0 4px 12px var(--shadow-ambient);
 }
 
 .hero-image-wrapper {
@@ -351,7 +351,7 @@
 
 /* Position / Education Card */
 .bento-position {
-  background-color: var(--pure-white);
+  background-color: var(--surface-container-lowest);
   border: 1px solid var(--outline-variant);
   padding: 32px;
   border-radius: var(--radius-xl);
@@ -363,7 +363,7 @@
 
 .bento-position:hover {
   transform: scale(1.01);
-  box-shadow: 0 10px 30px rgba(26, 82, 118, 0.08);
+  box-shadow: 0 10px 30px var(--shadow-ambient);
 }
 
 .bento-position hr {
@@ -417,7 +417,7 @@
 }
 
 .bento-expertise:hover {
-  box-shadow: 0 4px 16px rgba(26, 82, 118, 0.06);
+  box-shadow: 0 4px 16px var(--shadow-card);
 }
 
 .bento-expertise .label {
@@ -443,7 +443,7 @@
   right: 0;
   width: 48px;
   height: 100%;
-  background: linear-gradient(to right, rgba(246, 243, 242, 0), var(--surface-container-low));
+  background: linear-gradient(to right, var(--gradient-fade-surface-low), var(--surface-container-low));
   z-index: 2;
   pointer-events: none;
 }
@@ -561,7 +561,7 @@
 
 .journal-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 40px -10px rgba(26, 82, 118, 0.08);
+  box-shadow: 0 10px 40px -10px var(--shadow-ambient);
 }
 
 .journal-card-header {
@@ -579,7 +579,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--primary);
-  background-color: var(--pure-white);
+  background-color: var(--surface-container-low);
   padding: 4px 12px;
   border-radius: var(--radius-default);
 }
@@ -619,10 +619,10 @@
   font-weight: 500;
   line-height: 20px;
   color: var(--primary);
-  background-color: var(--pure-white);
+  background-color: var(--surface-container-low);
   padding: 4px 12px;
   border-radius: var(--radius-default);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px var(--shadow-card);
 }
 
 /* --- Conference Timeline --- */
@@ -662,7 +662,7 @@
     top: 8px;
     width: 16px;
     height: 16px;
-    background-color: var(--pure-white);
+    background-color: var(--surface-container-lowest);
     border: 2px solid var(--primary);
     border-radius: 50%;
     transition: background-color 0.2s ease;
@@ -737,7 +737,7 @@
 }
 
 .cta-container:hover {
-  box-shadow: 0 25px 50px -12px rgba(26, 82, 118, 0.3);
+  box-shadow: 0 25px 50px -12px var(--shadow-btn);
 }
 
 /* Decorative blobs */
@@ -905,5 +905,5 @@
 .cta-email-btn:hover {
   background-color: var(--surface-ice);
   transform: scale(1.02);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px var(--shadow-elevated);
 }

@@ -81,6 +81,21 @@
   --electric-accent: #3498DB;
   --background: #fbf9f8;
 
+  /* --- Theme-aware utility tokens --- */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --overlay-bg: rgba(0, 0, 0, 0.3);
+  --shadow-ambient: rgba(26, 82, 118, 0.08);
+  --shadow-card: rgba(26, 82, 118, 0.05);
+  --shadow-elevated: rgba(26, 82, 118, 0.12);
+  --shadow-btn: rgba(26, 82, 118, 0.2);
+  --gradient-fade-white: rgba(255, 255, 255, 0);
+  --gradient-fade-surface-low: rgba(246, 243, 242, 0);
+  --decorative-blur: rgba(0, 59, 90, 0.05);
+  --decorative-blur-hover: rgba(0, 59, 90, 0.1);
+  --success-bg: rgba(52, 152, 219, 0.08);
+  --pill-bg: rgba(26, 82, 118, 0.08);
+  --toggle-hover-bg: rgba(26, 82, 118, 0.04);
+
   /* --- Spacing (8px grid) --- */
   --unit: 8px;
   --gutter: 24px;
@@ -97,6 +112,110 @@
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
   --radius-full: 9999px;
+}
+
+/* ============================
+   1b. Dark Theme Overrides
+   ============================ */
+[data-theme="dark"] {
+  /* --- Surface Colors --- */
+  --surface: #111827;
+  --surface-dim: #0F172A;
+  --surface-bright: #1E293B;
+  --surface-container-lowest: #0F172A;
+  --surface-container-low: #1E293B;
+  --surface-container: #1E293B;
+  --surface-container-high: #273548;
+  --surface-container-highest: #334155;
+  --surface-variant: #334155;
+  --surface-ice: #1a2e42;
+  --surface-tint: #5BA3D9;
+
+  /* --- On-Surface Colors --- */
+  --on-surface: #F8FAFC;
+  --on-surface-variant: #CBD5E1;
+  --on-background: #F8FAFC;
+
+  /* --- Inverse Colors --- */
+  --inverse-surface: #E2E8F0;
+  --inverse-on-surface: #1E293B;
+  --inverse-primary: #003b5a;
+
+  /* --- Primary Colors --- */
+  --primary: #7CB9E8;
+  --on-primary: #FFFFFF;
+  --primary-container: #1E4D6E;
+  --on-primary-container: #9ECBF6;
+  --primary-fixed: #1E4D6E;
+  --primary-fixed-dim: #5BA3D9;
+  --on-primary-fixed: #CBE6FF;
+  --on-primary-fixed-variant: #7CB9E8;
+
+  /* --- Secondary Colors --- */
+  --secondary: #5DADE2;
+  --on-secondary: #FFFFFF;
+  --secondary-container: #1a3d5c;
+  --on-secondary-container: #92CCFF;
+  --secondary-fixed: #1a3d5c;
+  --secondary-fixed-dim: #5DADE2;
+  --on-secondary-fixed: #CCE5FF;
+  --on-secondary-fixed-variant: #7CB9E8;
+
+  /* --- Tertiary Colors --- */
+  --tertiary: #F2BD74;
+  --on-tertiary: #291800;
+  --tertiary-container: #4d3100;
+  --on-tertiary-container: #F2BD74;
+  --tertiary-fixed: #4d3100;
+  --tertiary-fixed-dim: #D4A054;
+  --on-tertiary-fixed: #FFDDB3;
+  --on-tertiary-fixed-variant: #F2BD74;
+
+  /* --- Error Colors --- */
+  --error: #FF6B6B;
+  --on-error: #FFFFFF;
+  --error-container: #93000a;
+  --on-error-container: #FFB4AB;
+
+  /* --- Outline Colors --- */
+  --outline: #64748B;
+  --outline-variant: #334155;
+
+  /* --- Special Colors --- */
+  --pure-white: #111827;
+  --electric-accent: #5DADE2;
+  --background: #0F172A;
+
+  /* --- Theme-aware utility tokens --- */
+  --glass-bg: rgba(15, 23, 42, 0.85);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+  --shadow-ambient: rgba(0, 0, 0, 0.25);
+  --shadow-card: rgba(0, 0, 0, 0.2);
+  --shadow-elevated: rgba(0, 0, 0, 0.35);
+  --shadow-btn: rgba(0, 0, 0, 0.3);
+  --gradient-fade-white: rgba(17, 24, 39, 0);
+  --gradient-fade-surface-low: rgba(30, 41, 59, 0);
+  --decorative-blur: rgba(91, 163, 217, 0.06);
+  --decorative-blur-hover: rgba(91, 163, 217, 0.12);
+  --success-bg: rgba(93, 173, 226, 0.12);
+  --pill-bg: rgba(124, 185, 232, 0.12);
+  --toggle-hover-bg: rgba(124, 185, 232, 0.08);
+}
+
+/* ============================
+   1c. Theme Transition
+   ============================ */
+html[data-theme] body,
+html[data-theme] body *,
+html[data-theme] body *::before,
+html[data-theme] body *::after {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    fill 0.25s ease,
+    stroke 0.25s ease;
 }
 
 /* ============================
@@ -268,12 +387,12 @@ ol {
 .glass-nav {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--glass-bg);
 }
 
 /* Ambient Shadow */
 .ambient-shadow {
-  box-shadow: 0 10px 40px -10px rgba(26, 82, 118, 0.08);
+  box-shadow: 0 10px 40px -10px var(--shadow-ambient);
 }
 
 /* Shimmer Button Effect */

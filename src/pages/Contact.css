@@ -67,14 +67,14 @@
   right: -48px;
   width: 192px;
   height: 192px;
-  background-color: rgba(0, 59, 90, 0.05);
+  background-color: var(--decorative-blur);
   border-radius: 50%;
   filter: blur(48px);
   transition: background-color 0.5s ease;
 }
 
 .contact-details-card:hover .decorative-blur {
-  background-color: rgba(0, 59, 90, 0.1);
+  background-color: var(--decorative-blur-hover);
 }
 
 .contact-details-card h2 {
@@ -122,7 +122,7 @@
 .contact-details-footer {
   margin-top: 64px;
   padding-top: 32px;
-  border-top: 1px solid rgba(193, 199, 207, 0.3);
+  border-top: 1px solid var(--outline-variant);
 }
 
 .contact-details-footer p {
@@ -152,11 +152,11 @@
 
 /* Student Slots Card */
 .contact-slots-card {
-  background-color: var(--pure-white);
+  background-color: var(--surface-container-lowest);
   border: 1px solid var(--outline-variant);
   border-radius: var(--radius-xl);
   padding: 32px;
-  box-shadow: 0 8px 30px rgba(26, 82, 118, 0.05);
+  box-shadow: 0 8px 30px var(--shadow-card);
 }
 
 .contact-slots-card h3 {
@@ -207,11 +207,11 @@
 
 /* Appointment Form Card */
 .contact-form-card {
-  background-color: var(--pure-white);
+  background-color: var(--surface-container-lowest);
   border: 1px solid var(--outline-variant);
   border-radius: var(--radius-xl);
   padding: 32px;
-  box-shadow: 0 8px 30px rgba(26, 82, 118, 0.05);
+  box-shadow: 0 8px 30px var(--shadow-card);
   flex-grow: 1;
 }
 
@@ -296,6 +296,10 @@
   background-position: right 0 center;
 }
 
+[data-theme="dark"] .form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%2364748B'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
 .form-group textarea {
   resize: none;
 }
@@ -338,7 +342,7 @@
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background-color: rgba(52, 152, 219, 0.08);
+  background-color: var(--success-bg);
   border-radius: var(--radius-lg);
   color: var(--primary);
   margin-top: 16px;

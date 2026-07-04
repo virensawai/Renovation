@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
 
 const navItems = [
-  { label: 'Home', path: '/' },
+  { label: 'Home', path: '/home' },
+  { label: 'Course materias', path: '/' },
   { label: 'Attendance', path: '/attendance' },
   { label: 'Marks', path: '/marks' },
   { label: 'Assignment', path: '/assignment' },
   { label: 'Announcements', path: '/announcements' },
-  { label: 'Courses', path: '/courses' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -53,6 +54,9 @@ export default function Navbar() {
             })}
           </div>
 
+          {/* Theme Toggle (Desktop) */}
+          <ThemeToggle />
+
           {/* Desktop CTA */}
           <Link to="/contact" className="navbar-cta shimmer-btn">
             Schedule Appointment
@@ -84,6 +88,12 @@ export default function Navbar() {
             close
           </span>
         </button>
+
+        {/* Theme Toggle (Mobile) */}
+        <div className="mobile-theme-toggle-wrapper">
+          <ThemeToggle />
+          <span className="mobile-theme-label">Toggle Theme</span>
+        </div>
 
         {navItems.map((item) => {
           const active = checkIsActive(item.path);
