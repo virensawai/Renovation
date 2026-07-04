@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
@@ -15,6 +15,8 @@ const navItems = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const location = useLocation();
 
   const toggleMobile = () => setIsMobileMenuOpen((prev) => !prev);
@@ -30,9 +32,56 @@ export default function Navbar() {
     return location.pathname === path;
   };
 
+  // Scroll-direction detection: hide on scroll-down, show on scroll-up
+  const handleScroll = useCallback(() => {
+    const currentScroll = window.scrollY;
+    setIsScrolled(currentScroll > 20);
+
+    // Don't hide when mobile menu is open
+    if (isMobileMenuOpen) return;
+
+    if (currentScroll > 100 && currentScroll > handleScroll._lastScroll) {
+      setIsHidden(true);
+    } else {
+      setIsHidden(false);
+    }
+    handleScroll._lastScroll = currentScroll;
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    handleScroll._lastScroll = 0;
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeMobile();
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
+  const navbarClasses = [
+    'navbar',
+    'glass-nav',
+    isScrolled ? 'scrolled' : '',
+    isHidden ? 'hidden' : '',
+  ].filter(Boolean).join(' ');
+
   return (
     <>
-      <nav className="navbar glass-nav">
+      <nav className={navbarClasses}>
         <div className="navbar-inner">
           <Link to="/" className="navbar-brand">
             Dr. Nikhil Mhala
@@ -65,7 +114,8 @@ export default function Navbar() {
             <button
               className="navbar-mobile-btn"
               onClick={toggleMobile}
-              aria-label="Open menu"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
             >
               <span className="material-symbols-outlined" style={{ fontSize: 28 }}>
                 menu
@@ -98,7 +148,7 @@ export default function Navbar() {
           <span className="mobile-theme-label">Toggle Theme</span>
         </div>
 
-        {navItems.map((item) => {
+        {navItems.map((item, index) => {
           const active = checkIsActive(item.path);
           return (
             <Link
@@ -106,6 +156,7 @@ export default function Navbar() {
               to={item.path}
               className={`mobile-menu-link${active ? ' active' : ''}`}
               onClick={closeMobile}
+              style={{ transitionDelay: isMobileMenuOpen ? `${(index + 1) * 50}ms` : '0ms' }}
             >
               {item.label}
             </Link>
@@ -119,3 +170,4 @@ export default function Navbar() {
     </>
   );
 }
+

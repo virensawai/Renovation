@@ -322,11 +322,13 @@ export default function Courses() {
               <tbody>
                 {displayedTheoryResources.map((resource, index) => (
                   <tr key={index}>
-                    <td className="material-name-cell">
-                      <span className="material-symbols-outlined file-icon">
-                        {resource.icon}
-                      </span>
-                      {resource.name}
+                    <td>
+                      <div className="material-name-cell">
+                        <span className="material-symbols-outlined file-icon">
+                          {resource.icon}
+                        </span>
+                        {resource.name}
+                      </div>
                     </td>
                     <td>
                       {resource.isExternal ? (
@@ -381,7 +383,11 @@ export default function Courses() {
 
         <div className="labs-resource-grid">
           {labResources.map((lab, index) => (
-            <div key={index} className="lab-resource-card hover-lift">
+            <div
+              key={index}
+              className="lab-resource-card hover-lift animate-on-scroll"
+              style={{ transitionDelay: `${Math.min(index * 80, 400)}ms` }}
+            >
               <div className="lab-card-top text-primary">
                 <span className="material-symbols-outlined icon-fill">
                   {lab.icon === 'link' ? 'link' : lab.icon}

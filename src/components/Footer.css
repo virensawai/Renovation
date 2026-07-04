@@ -7,6 +7,11 @@
   width: 100%;
   padding: 64px 0;
   margin-top: auto;
+  border-top: 2px solid transparent;
+  background-image: linear-gradient(var(--surface-container-low), var(--surface-container-low)),
+                    linear-gradient(90deg, var(--primary), var(--secondary), var(--electric-accent));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 .footer-inner {
@@ -107,3 +112,4 @@
     margin-top: 0;
   }
 }
+

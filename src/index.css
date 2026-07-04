@@ -112,6 +112,15 @@
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
   --radius-full: 9999px;
+
+  /* --- Motion Tokens --- */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.5s;
+  --navbar-height: 80px;
+  --navbar-height-scrolled: 64px;
 }
 
 /* ============================
@@ -268,6 +277,21 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+/* ============================
+   2b. Global Focus-Visible
+   ============================ */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 input,
@@ -439,9 +463,47 @@ ol {
     transform: translateY(0);
   }
 
+  /* Directional scroll animation variants */
+  .animate-on-scroll-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .animate-on-scroll-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .animate-on-scroll-left.is-visible,
+  .animate-on-scroll-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
   .delay-100 { transition-delay: 100ms; }
   .delay-200 { transition-delay: 200ms; }
   .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+}
+
+/* Respect reduced motion for all keyframe animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scroll margin utility (navbar offset) */
+.scroll-mt-nav {
+  scroll-margin-top: calc(var(--navbar-height) + 16px);
 }
 
 /* ============================

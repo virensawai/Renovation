@@ -162,19 +162,19 @@ export default function Home() {
       {/* ============ Hero Section ============ */}
       <section className="hero container" id="home">
         <div className="hero-grid">
-          <div className="hero-content">
-            <span className="text-label-caps hero-label animate-on-scroll">
+          <div className="hero-content animate-on-scroll-left">
+            <span className="text-label-caps hero-label">
               Assistant Professor &amp; Researcher
             </span>
-            <h1 className="text-display-lg-mobile hero-title animate-on-scroll delay-100 responsive-display">
+            <h1 className="text-display-lg-mobile hero-title responsive-display">
               Advancing Visual Cryptography &amp; Machine Learning.
             </h1>
-            <p className="text-body-lg hero-description animate-on-scroll delay-200">
+            <p className="text-body-lg hero-description">
               Dedicated to research and education in Image Processing, Machine
               Learning, and Information Security at P. R. Pote Patil College of
               Engineering &amp; Management.
             </p>
-            <div className="hero-cta-group animate-on-scroll delay-300">
+            <div className="hero-cta-group">
               <Link to="/contact" className="btn-primary shimmer-btn">
                 Schedule Appointment
               </Link>
@@ -184,7 +184,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-image-wrapper animate-on-scroll">
+          <div className="hero-image-wrapper animate-on-scroll-right">
             <div className="hero-image-container ambient-shadow">
               <img
                 className="hero-image"
@@ -296,7 +296,11 @@ export default function Home() {
             </h2>
             <div className="journals-grid">
               {filteredJournals.map((journal, idx) => (
-                <article key={idx} className="journal-card animate-on-scroll">
+                <article
+                  key={idx}
+                  className="journal-card animate-on-scroll"
+                  style={{ transitionDelay: `${Math.min(idx * 100, 400)}ms` }}
+                >
                   <div>
                     <div className="journal-card-header">
                       <span className="journal-year">{journal.year}</span>
@@ -329,7 +333,11 @@ export default function Home() {
             </h2>
             <div className="conferences-timeline">
               {filteredConferences.map((conf, idx) => (
-                <div key={idx} className="conference-item animate-on-scroll">
+                <div
+                  key={idx}
+                  className="conference-item animate-on-scroll"
+                  style={{ transitionDelay: `${Math.min(idx * 100, 400)}ms` }}
+                >
                   <div className="conference-dot"></div>
                   <div className="text-label-caps conference-date">{conf.date}</div>
                   <h3>{conf.title}</h3>
@@ -367,7 +375,7 @@ export default function Home() {
                 researcher interested in collaboration, I'm available to connect.
               </p>
 
-              <div className="cta-info-item">
+              <div className="cta-info-item animate-on-scroll">
                 <span className="material-symbols-outlined">mail</span>
                 <div>
                   <p className="text-label-caps cta-info-label">Email</p>
@@ -379,7 +387,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="cta-info-item">
+              <div className="cta-info-item animate-on-scroll delay-100">
                 <span className="material-symbols-outlined">location_on</span>
                 <div>
                   <p className="text-label-caps cta-info-label">Office</p>

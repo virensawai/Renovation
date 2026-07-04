@@ -8,18 +8,36 @@
   width: 100%;
   z-index: 50;
   border-bottom: 1px solid var(--outline-variant);
-  transition: all 0.3s ease;
+  transition: transform 0.3s var(--ease-out-expo),
+              height 0.3s var(--ease-out-expo),
+              box-shadow 0.3s ease,
+              background-color 0.25s ease;
+}
+
+/* Condensed state when scrolled */
+.navbar.scrolled {
+  box-shadow: 0 4px 20px var(--shadow-ambient);
+}
+
+.navbar.scrolled .navbar-inner {
+  height: var(--navbar-height-scrolled);
+}
+
+/* Hidden state on scroll-down */
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: var(--navbar-height);
   max-width: var(--container-max);
   width: min(92vw, var(--container-max));
   margin-inline: auto;
   padding: 0 var(--margin-mobile);
+  transition: height 0.3s var(--ease-out-expo);
 }
 
 @media (min-width: 768px) {
@@ -221,6 +239,19 @@
   background-color: var(--surface-ice);
   color: var(--primary);
   font-weight: 500;
+}
+
+/* Mobile menu link entrance animation */
+.mobile-menu .mobile-menu-link {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease,
+              background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-menu.open .mobile-menu-link {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .mobile-menu-cta {

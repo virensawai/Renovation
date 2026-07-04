@@ -43,7 +43,7 @@ export default function Contact() {
           <div>
             <h2 className="text-headline-md">Contact Details</h2>
             <div className="contact-info-list">
-              <div className="contact-info-item">
+              <div className="contact-info-item animate-on-scroll">
                 <span className="material-symbols-outlined">mail</span>
                 <div>
                   <p className="text-label-caps contact-info-label">Email</p>
@@ -55,7 +55,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="contact-info-item">
+              <div className="contact-info-item animate-on-scroll delay-100">
                 <span className="material-symbols-outlined">location_on</span>
                 <div>
                   <p className="text-label-caps contact-info-label">Office Location</p>
@@ -68,7 +68,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="contact-info-item">
+              <div className="contact-info-item animate-on-scroll delay-200">
                 <span className="material-symbols-outlined">schedule</span>
                 <div>
                   <p className="text-label-caps contact-info-label">General Working Hours</p>
@@ -101,15 +101,15 @@ export default function Contact() {
               student hours.
             </p>
             <ul className="slots-list">
-              <li className="slot-item">
+              <li className="slot-item animate-on-scroll delay-100">
                 <span className="text-label-md slot-day">Monday</span>
                 <span className="text-body-md slot-time">3:30 PM - 5:00 PM</span>
               </li>
-              <li className="slot-item">
+              <li className="slot-item animate-on-scroll delay-200">
                 <span className="text-label-md slot-day">Wed - Fri</span>
                 <span className="text-body-md slot-time">3:30 PM - 5:00 PM</span>
               </li>
-              <li className="slot-item">
+              <li className="slot-item animate-on-scroll delay-300">
                 <span className="text-label-md slot-day">Saturday</span>
                 <span className="text-body-md slot-time">1:30 PM - 3:00 PM</span>
               </li>

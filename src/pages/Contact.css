@@ -273,14 +273,24 @@
   line-height: 24px;
   color: var(--on-surface);
   outline: none;
-  transition: border-color 0.2s ease;
   border-radius: 0;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--secondary);
+/* Animated bottom border on focus */
+.form-group::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.form-group:focus-within::after {
+  width: 100%;
+  left: 0;
 }
 
 .form-group input::placeholder,
@@ -330,6 +340,13 @@
 
 .form-submit-btn:hover {
   background-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-btn);
+}
+
+.form-submit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .form-submit-btn .material-symbols-outlined {
@@ -346,6 +363,18 @@
   border-radius: var(--radius-lg);
   color: var(--primary);
   margin-top: 16px;
+  animation: slideInUp 0.4s var(--ease-spring) forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-success .material-symbols-outlined {

@@ -1,0 +1,49 @@
+/* ===========================
+   Scroll-to-Top Button Styles
+   =========================== */
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary-container);
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px var(--shadow-btn);
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  transform: translateY(16px) scale(0.8);
+  visibility: hidden;
+  transition: opacity var(--duration-normal) ease,
+              transform var(--duration-normal) var(--ease-spring),
+              visibility var(--duration-normal) ease,
+              background-color var(--duration-fast) ease,
+              box-shadow var(--duration-fast) ease;
+}
+
+.scroll-to-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: var(--surface-tint);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px var(--shadow-elevated);
+}
+
+.scroll-to-top-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.scroll-to-top-btn .material-symbols-outlined {
+  font-size: 24px;
+}
