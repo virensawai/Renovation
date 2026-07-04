@@ -111,8 +111,8 @@ const conferences = [
 ];
 
 export default function Home() {
-  const ref = useScrollAnimation();
   const [searchQuery, setSearchQuery] = useState('');
+  const ref = useScrollAnimation([searchQuery]);
 
   const filteredJournals = useMemo(() => {
     if (!searchQuery.trim()) return journals;

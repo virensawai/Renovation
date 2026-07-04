@@ -12,7 +12,7 @@ import { useEffect, useRef } from 'react';
  * Respects prefers-reduced-motion by skipping observer setup.
  * Call this hook in any page component that needs scroll animations.
  */
-export default function useScrollAnimation() {
+export default function useScrollAnimation(dependencies = []) {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function useScrollAnimation() {
     return () => {
       elements.forEach((el) => observer.unobserve(el));
     };
-  }, []);
+  }, dependencies);
 
   return containerRef;
 }
