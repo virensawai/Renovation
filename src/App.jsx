@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Courses from './pages/Courses';
 import Contact from './pages/Contact';
 import ComingSoon from './pages/ComingSoon';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/assignment" element={<ComingSoon />} />
           <Route path="/announcements" element={<ComingSoon />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

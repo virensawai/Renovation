@@ -1,0 +1,129 @@
+/* ===========================
+   404 Not Found Page
+   =========================== */
+
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.nf-container {
+  max-width: 520px;
+}
+
+/* Large 404 code */
+.nf-code {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: clamp(96px, 20vw, 160px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--secondary) 50%,
+    var(--electric-accent) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+  user-select: none;
+  animation: nf-float 3s ease-in-out infinite;
+}
+
+@keyframes nf-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Title */
+.nf-title {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+}
+
+/* Description */
+.nf-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--on-surface-variant);
+  margin-bottom: 32px;
+}
+
+/* Home link button */
+.nf-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border-radius: var(--radius-xl);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px var(--shadow-btn);
+}
+
+.nf-home-link:hover {
+  background-color: var(--primary-container);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-elevated);
+}
+
+.nf-home-link .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* Divider */
+.nf-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--outline-variant);
+  border: none;
+  border-radius: var(--radius-full);
+  margin: 24px auto;
+}
+
+/* Suggestion text */
+.nf-suggestion {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 22px;
+}
+
+.nf-suggestion a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.nf-suggestion a:hover {
+  color: var(--electric-accent);
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .nf-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .nf-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
