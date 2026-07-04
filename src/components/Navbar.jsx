@@ -54,24 +54,27 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Theme Toggle (Desktop) */}
-          <ThemeToggle />
+          {/* Actions Group (CTA / Mobile Menu & Theme Toggle) */}
+          <div className="navbar-actions">
+            {/* Desktop CTA */}
+            <Link to="/contact" className="navbar-cta shimmer-btn">
+              Schedule Appointment
+            </Link>
 
-          {/* Desktop CTA */}
-          <Link to="/contact" className="navbar-cta shimmer-btn">
-            Schedule Appointment
-          </Link>
+            {/* Mobile Menu Button */}
+            <button
+              className="navbar-mobile-btn"
+              onClick={toggleMobile}
+              aria-label="Open menu"
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: 28 }}>
+                menu
+              </span>
+            </button>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="navbar-mobile-btn"
-            onClick={toggleMobile}
-            aria-label="Open menu"
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: 28 }}>
-              menu
-            </span>
-          </button>
+            {/* Theme Toggle */}
+            <ThemeToggle />
+          </div>
         </div>
       </nav>
 

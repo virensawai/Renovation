@@ -131,6 +131,13 @@
   }
 }
 
+/* Actions Group (CTA / Mobile Menu & Theme Toggle) */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* Mobile Menu Button */
 .navbar-mobile-btn {
   display: flex;
