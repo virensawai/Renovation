@@ -18,7 +18,7 @@ export default function NotFound() {
         <hr className="nf-divider" />
         <p className="nf-suggestion">
           Looking for course materials? Visit the{' '}
-          <Link to="/">Course Materials</Link> page, or{' '}
+          <Link to="/courses">Course Materials</Link> page, or{' '}
           <Link to="/contact">get in touch</Link>.
         </p>
       </div>

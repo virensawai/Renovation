@@ -16,8 +16,8 @@ export default function App() {
       <div className="app-shell">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Courses />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/courses" element={<Courses />} />
           <Route path="/attendance" element={<ComingSoon />} />
           <Route path="/marks" element={<ComingSoon />} />
           <Route path="/assignment" element={<ComingSoon />} />

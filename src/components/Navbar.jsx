@@ -4,8 +4,8 @@ import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
 
 const navItems = [
-  { label: 'Home', path: '/home' },
-  { label: 'Course materias', path: '/' },
+  { label: 'Home', path: '/' },
+  { label: 'Course materias', path: '/courses' },
   { label: 'Attendance', path: '/attendance' },
   { label: 'Marks', path: '/marks' },
   { label: 'Assignment', path: '/assignment' },
