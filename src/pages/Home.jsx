@@ -4,7 +4,7 @@ import useScrollAnimation from '../hooks/useScrollAnimation';
 import './Home.css';
 
 const announcements = [
-  "Research paper published in 'The Visual Computer' journal.",
+  "Module 1 PPT & Notes Available Now!",
   "Upcoming Guest Lecture on Deep Learning - March 15th.",
   "Student registration for CSE (AIML) courses is now open."
 ];
