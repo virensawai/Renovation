@@ -4,148 +4,20 @@ import './Courses.css';
 
 const theoryResources = [
   {
-    name: 'Algorithms Syllabus (Theory)',
-    accessLabel: 'View Syllabus',
+    name: 'Module 1 (PPT)',
+    accessLabel: 'View PPT',
     url: '#',
     isExternal: false,
-    icon: 'description',
+    icon: 'slideshow',
     actionIcon: 'visibility',
   },
   {
-    name: 'Module 1 (PPT)',
-    accessLabel: 'Module 1 (PPT)',
-    url: '#',
-    isExternal: false,
-    icon: 'slideshow',
-    actionIcon: 'download',
-  },
-  {
     name: 'Module 1 (Notes)',
-    accessLabel: 'External Link',
-    url: 'https://drive.google.com/file/d/1b5cZUqMHCp_bn6KFMg8fpFJYijeUEykj/view',
+    accessLabel: 'Download Notes',
+    url: 'https://drive.google.com/file/d/1qlbNeNDqvXFLsDpGorxPRiwMNfy6Eqf9/view',
     isExternal: true,
     icon: 'notes',
-    actionIcon: 'link',
-  },
-  {
-    name: 'Module 1 (Revision)',
-    accessLabel: 'Module 1 (MCQ)',
-    url: '#',
-    isExternal: false,
-    icon: 'quiz',
-    actionIcon: 'task',
-  },
-  {
-    name: 'Module 2 (PPT)',
-    accessLabel: 'Module 2 (PPT)',
-    url: '#',
-    isExternal: false,
-    icon: 'slideshow',
     actionIcon: 'download',
-  },
-  {
-    name: 'Module 2 (Notes)',
-    accessLabel: 'External Link',
-    url: 'https://drive.google.com/file/d/1I4Sz1UUXBrf54Gd_3x3NGPKqPxQERNPd/view',
-    isExternal: true,
-    icon: 'notes',
-    actionIcon: 'link',
-  },
-  {
-    name: 'Masters Th.',
-    accessLabel: 'External Link',
-    url: 'https://drive.google.com/file/d/123-3-QYlH1cxPs1PQBcibAJHEqR5X_HI/preview',
-    isExternal: true,
-    icon: 'menu_book',
-    actionIcon: 'link',
-  },
-  {
-    name: 'UNIT 3 (Notes)',
-    accessLabel: 'External Link',
-    url: 'https://drive.google.com/file/d/1HoxE3Utn87i_cpE9IZL_bT0gQmrYIh6S/view?usp=sharing',
-    isExternal: true,
-    icon: 'notes',
-    actionIcon: 'link',
-  },
-  {
-    name: 'UNIT 3 (graphics Algorithm PPT)',
-    accessLabel: 'UNIT 3 (graphics Algorithm PPT)',
-    url: '#',
-    isExternal: false,
-    icon: 'slideshow',
-    actionIcon: 'download',
-  },
-  {
-    name: 'UNIT 3 (PPT)',
-    accessLabel: 'UNIT 3 ( PPT)',
-    url: '#',
-    isExternal: false,
-    icon: 'slideshow',
-    actionIcon: 'download',
-  },
-  {
-    name: 'MSE 1 Model Answers',
-    accessLabel: 'MSE 1 Model Answers',
-    url: '#',
-    isExternal: false,
-    icon: 'assignment_turned_in',
-    actionIcon: 'task',
-  },
-  {
-    name: 'Module 4 (PPT PART 1)',
-    accessLabel: 'Module 4 (PART 1)',
-    url: '#',
-    isExternal: false,
-    icon: 'slideshow',
-    actionIcon: 'download',
-  },
-  {
-    name: 'UNIT 4 (Notes)',
-    accessLabel: 'External Link',
-    url: 'https://drive.google.com/file/d/1m2GfkF1m4kcTBhmibl7ZVXI_ppuinQ0j/view?usp=sharing',
-    isExternal: true,
-    icon: 'notes',
-    actionIcon: 'link',
-  },
-  {
-    name: 'UNIT 5 PPT',
-    accessLabel: 'Module 5 PPT',
-    url: '#',
-    isExternal: false,
-    icon: 'slideshow',
-    actionIcon: 'download',
-  },
-  {
-    name: 'UNIT 6 PPT',
-    accessLabel: 'Module 6 PPT',
-    url: '#',
-    isExternal: false,
-    icon: 'slideshow',
-    actionIcon: 'download',
-  },
-  {
-    name: 'Module 5 (Notes)',
-    accessLabel: 'External Link',
-    url: 'https://drive.google.com/file/d/11wwjT_weh1r4quqmHxALPdrLndTBTA1_/preview',
-    isExternal: true,
-    icon: 'notes',
-    actionIcon: 'link',
-  },
-  {
-    name: 'Module 6 (Notes)',
-    accessLabel: 'External Link',
-    url: 'https://drive.google.com/file/d/1p82OHMyhN-RetxE0wP_iwPS72zGcwFjZ/preview',
-    isExternal: true,
-    icon: 'notes',
-    actionIcon: 'link',
-  },
-  {
-    name: 'MSE 2 Model Answers',
-    accessLabel: 'MSE 2 Model Answers',
-    url: '#',
-    isExternal: false,
-    icon: 'assignment_turned_in',
-    actionIcon: 'task',
   },
 ];
 
@@ -253,8 +125,8 @@ export default function Courses() {
                   <span className="material-symbols-outlined icon-fill">psychology</span>
                 </div>
                 <div className="subject-code-name">
-                  <span className="subject-code">[ML402PCC08]</span>
-                  <h3 className="subject-name">Algorithms (Theory)</h3>
+                  <span className="subject-code">[ML501PCC12]</span>
+                  <h3 className="subject-name">DBMS (Theory)</h3>
                 </div>
               </div>
               <div className="subject-card-footer">
@@ -276,24 +148,6 @@ export default function Courses() {
               scrollToSection('algo-lab');
             }}
           >
-            <div className="subject-card-body">
-              <div className="subject-card-header">
-                <div className="subject-icon-wrapper">
-                  <span className="material-symbols-outlined icon-fill">terminal</span>
-                </div>
-                <div className="subject-code-name">
-                  <span className="subject-code">[ML407PCC10]</span>
-                  <h3 className="subject-name">Algorithms LAB.</h3>
-                </div>
-              </div>
-              <div className="subject-card-footer">
-                <span className="resource-pill">
-                  <span className="material-symbols-outlined">folder_open</span>
-                  {labResources.length} Resources
-                </span>
-                <span className="material-symbols-outlined arrow-icon">arrow_forward</span>
-              </div>
-            </div>
           </a>
         </div>
       </section>
@@ -303,7 +157,7 @@ export default function Courses() {
         <div className="section-header">
           <div className="section-header-title">
             <span className="material-symbols-outlined section-icon icon-fill">psychology</span>
-            <h2 className="text-headline-lg">Algorithms (Theory)</h2>
+            <h2 className="text-headline-lg">DBMS (Theory)</h2>
           </div>
           <span className="badge-pill hide-mobile">
             {theoryResources.length} Available Resources
@@ -338,7 +192,9 @@ export default function Courses() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <span className="material-symbols-outlined text-sm">link</span>
+                          <span className="material-symbols-outlined text-sm">
+                            {resource.actionIcon}
+                          </span>
                           {resource.accessLabel}
                         </a>
                       ) : (
@@ -370,54 +226,7 @@ export default function Courses() {
       </section>
 
       {/* Algorithms Lab Materials Section */}
-      <section id="algo-lab" className="materials-section scroll-mt-32 animate-on-scroll">
-        <div className="section-header">
-          <div className="section-header-title">
-            <span className="material-symbols-outlined section-icon icon-fill">terminal</span>
-            <h2 className="text-headline-lg">Algorithms LAB.</h2>
-          </div>
-          <span className="badge-pill hide-mobile">
-            {labResources.length} Available Resources
-          </span>
-        </div>
-
-        <div className="labs-resource-grid">
-          {labResources.map((lab, index) => (
-            <div
-              key={index}
-              className="lab-resource-card hover-lift animate-on-scroll"
-              style={{ transitionDelay: `${Math.min(index * 80, 400)}ms` }}
-            >
-              <div className="lab-card-top text-primary">
-                <span className="material-symbols-outlined icon-fill">
-                  {lab.icon === 'link' ? 'link' : lab.icon}
-                </span>
-                <h4 className="lab-resource-title">{lab.name}</h4>
-              </div>
-              <div className="lab-card-action">
-                {lab.isExternal ? (
-                  <a
-                    className="lab-btn-primary"
-                    href={lab.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="material-symbols-outlined text-sm">open_in_new</span>
-                    {lab.accessLabel}
-                  </a>
-                ) : (
-                  <a className="lab-btn-outline" href={lab.url}>
-                    <span className="material-symbols-outlined text-sm mr-1">
-                      {lab.actionIcon}
-                    </span>
-                    {lab.accessLabel}
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      
     </main>
   );
 }
